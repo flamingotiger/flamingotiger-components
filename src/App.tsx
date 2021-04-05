@@ -4,11 +4,12 @@ import Button from "./lib/Button";
 function App() {
   return (
     <div>
-      테스트
+      <h1>Test Components</h1>
+      <h2>Button</h2>
       <Button type="button" disabled>
-        Button
+        Disabled Button
       </Button>
-      <Button type="button">Button</Button>
+      <Button type="button">Active Button</Button>
     </div>
   );
 }
