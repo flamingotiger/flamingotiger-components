@@ -11,6 +11,9 @@ export const SResetButton = css`
   padding: 0;
   border: none;
   border-radius: 0;
+  appearance: none;
+  text-transform: none;
+  outline: none;
 `;
 
 /**
@@ -20,36 +23,43 @@ export const SButton = styled.button`
   ${SResetButton};
   border-radius: 0.25rem;
   position: relative;
-  padding: 0.625rem 1.25rem;
+  padding: 0.375rem 0.75rem;
   font-size: ${Sizes.md.rem};
-  background-color: ${Colors.key.color};
+  line-height: ${Sizes.xlg.rem};
+  background-color: ${Colors.orange.color};
   color: ${Colors.white.color};
-  cursor: pointer;
+  appearance: button;
+  user-select: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+  &:hover {
+    background: ${Colors['dark-orange'].color};
+  }
+  &:focus {
+    box-shadow: 0 0 0 0.25rem rgb(${Colors.orange.rgb}, 0.5);
+    background: ${Colors['dark-orange'].color};
+  }
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+  &:disabled {
+    background-color: ${Colors.gray.color};
+  }
 `;
 
 /**
- * 버튼 타입 정의
+ * 커스텀 버튼 타입 정의
  * @param children
- * @param className 부모에서 styled-components를 이용할때 styled(Button)``;로 사용가능
- * @param style 인라인 스타일
  */
 
 export interface IButton {
-  children: React.ReactNode;
-  className?: string;
-  style?: React.CSSProperties;
+  children?: React.ReactNode;
 }
 
-const Button: React.FC<IButton> = ({
-  className,
-  children = "Button",
-  style,
-}) => {
-  return (
-    <SButton className={className} style={style}>
-      {children}
-    </SButton>
-  );
+const Button: React.FC<
+  IButton & React.ButtonHTMLAttributes<HTMLButtonElement>
+> = ({ children = "Button", ...props }) => {
+  return <SButton {...props}>{children}</SButton>;
 };
 
 export default Button;

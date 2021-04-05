@@ -1,7 +1,14 @@
 export class Color {
-  color: string;
+  color: string = "";
   constructor(color: string) {
     this.color = color;
+  }
+  get rgb() {
+    return this.color
+      .match(/^#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i)
+      ?.slice(1)
+      .map((e) => parseInt(e, 16))
+      .join(",");
   }
   static random() {
     const code = [
@@ -30,8 +37,10 @@ export class Color {
   }
 }
 
-export const Colors = {
-  key: new Color("#e67839"),
+export const Colors: { [key: string]: Color } = {
+  "dark-orange": new Color("#ff5722"),
+  orange: new Color("#ff6d00"),
+  gray: new Color("#707070"),
   white: new Color("#ffffff"),
   black: new Color("#000000"),
 };

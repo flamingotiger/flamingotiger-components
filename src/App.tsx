@@ -5,7 +5,10 @@ function App() {
   return (
     <div>
       테스트
-      <Button>버튼</Button>
+      <Button type="button" disabled>
+        Button
+      </Button>
+      <Button type="button">Button</Button>
     </div>
   );
 }

@@ -16,8 +16,7 @@ be able to get started quickly.
 The method of use is simple.
 
 ```typescript
-import {Button} from '@flamingotiger/components';
+import { Button } from "@flamingotiger/components";
 
-<Button>Button</Button>
+<Button>Button</Button>;
 ```
-

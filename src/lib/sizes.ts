@@ -17,4 +17,5 @@ export const Sizes = {
   md: new Size(16),
   lg: new Size(18),
   xlg: new Size(22),
+  xxlg: new Size(24),
 };
