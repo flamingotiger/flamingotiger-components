@@ -1,2 +1,2 @@
-export { default as Button } from "./Button";
-export { default as Styles } from "./styles";
+export { default as Button } from "lib/Button";
+export { default as Styles } from "lib/styles";
